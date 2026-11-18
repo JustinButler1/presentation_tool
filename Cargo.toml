@@ -1,0 +1,18 @@
+[package]
+name = "split"
+version = "0.1.0"
+edition = "2024"
+description = "Minimal before/after photo viewer"
+license = "MIT"
+publish = false
+
+[dependencies]
+gpui-unofficial = "=1.28.1"
+# runtime_shaders compiles Metal at launch via the system GPU compiler.
+# Command Line Tools on this Mac do not ship the `metal` frontend.
+# font-kit selects the Core Text backend. Without it, macOS uses a
+# placeholder text system that lays labels out and paints no glyphs.
+gpui_platform = { package = "gpui-platform-gpui-unofficial", version = "=1.28.1", features = ["runtime_shaders", "font-kit"] }
+rfd = "0.15"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
